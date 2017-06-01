@@ -1,5 +1,3 @@
-import os
-
 import yorm
 from yorm.types import String, List
 
@@ -48,11 +46,12 @@ class TemplateStore:
     def __init__(self, root):
         self.root = root
         self._items = {}
-        for key in os.listdir(self.root):
-            if key[0] not in ('.', '_'):
-                model = TemplateModel(key, self.root)
-                yorm.save(model)
-                self._items[key] = model
+        print(self.root)
+        print(len(list(yorm.match(TemplateModel, root=self.root))))
+        for template in yorm.match(TemplateModel, root=self.root):
+            if template.key[0] not in ('.', '_'):
+                yorm.save(template)
+                self._items[template.key] = template
 
     def read(self, key):
         try:
