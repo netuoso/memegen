@@ -126,6 +126,10 @@ def get_encoded(code):
 
 
 def _get_watermark(_request, watermark):
+    from pprint import pformat
+    log.debug(pformat(_request.environ))
+    log.debug(_request.referrer)
+
     ref = _request.environ.get('HTTP_REFERER', "")
     log.debug("HTTP_REFERER: %r", ref)
 
