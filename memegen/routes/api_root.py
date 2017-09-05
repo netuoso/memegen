@@ -1,6 +1,7 @@
 from collections import OrderedDict
 
 from flask import Blueprint, current_app
+from flask_cachecontrol import cache_for
 
 from .. import __version__
 
@@ -11,6 +12,7 @@ blueprint = Blueprint('root', __name__)
 
 
 @blueprint.route("/api")
+@cache_for(hours=1)
 def get():
     """Generate memes from templates."""
     data = OrderedDict()

@@ -1,6 +1,7 @@
 from collections import OrderedDict
 
 from flask import Blueprint, current_app as app, redirect
+from flask_cachecontrol import cache_for
 from webargs import fields, flaskparser
 
 from ._utils import route
@@ -15,6 +16,7 @@ FILTER = {
 
 @blueprint.route("")
 @flaskparser.use_kwargs(FILTER)
+@cache_for(hours=1)
 def get(name):
     """Get a list of all matching aliases."""
     if name:
@@ -24,6 +26,7 @@ def get(name):
 
 
 @blueprint.route("<name>")
+@cache_for(hours=1)
 def get_with_name(name):
     """Get a list of all matching aliases."""
     return _get_aliases(name)

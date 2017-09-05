@@ -2,6 +2,7 @@ from collections import OrderedDict
 
 from flask import Blueprint, current_app, request, redirect
 from flask_api import exceptions
+from flask_cachecontrol import cache_for
 from webargs import fields
 
 from ..domain import Text
@@ -21,6 +22,7 @@ OPTIONS = {
 
 
 @blueprint.route("")
+@cache_for(hours=1)
 def get():
     """Get a list of all meme templates."""
     data = OrderedDict()
