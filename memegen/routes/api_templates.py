@@ -1,7 +1,8 @@
 from collections import OrderedDict
 
 from flask import Blueprint, current_app, request, redirect
-from flask_api import exceptions
+from flask_api import renderers, exceptions
+from flask_api.decorators import set_renderers
 from flask_cachecontrol import cache_for
 from webargs import fields
 
@@ -21,7 +22,20 @@ OPTIONS = {
 }
 
 
+@blueprint.route("browse")
+@set_renderers(renderers.BrowsableAPIRenderer, renderers.JSONRenderer)
+@cache_for(hours=1)
+def get_html():
+    """Get a list of all meme templates."""
+    data = OrderedDict()
+    for template in sorted(current_app.template_service.all()):
+        url = route('.create', key=template.key, _external=True)
+        data[template.name] = url
+    return data
+
+
 @blueprint.route("")
+@set_renderers(renderers.JSONRenderer)
 @cache_for(hours=1)
 def get():
     """Get a list of all meme templates."""
@@ -30,6 +44,10 @@ def get():
         url = route('.create', key=template.key, _external=True)
         data[template.name] = url
     return data
+
+
+
+
 
 
 @blueprint.route("", methods=['POST'])
