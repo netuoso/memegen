@@ -20,7 +20,7 @@
       console.log("Refreshing images");
       {% for src in srcs %}
         var elem{{ loop.index }} = document.getElementById("latest{{ loop.index }}");
-        elem{{ loop.index }}.src = "{{ src }}&" + Math.floor((Math.random() * 99999) + 1);
+        elem{{ loop.index }}.src = "//{{ src }}&" + Math.floor((Math.random() * 99999) + 1);
       {% endfor %}
     };
     setInterval(reload, {{ refresh * 1000 }});

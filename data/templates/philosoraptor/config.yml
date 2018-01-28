@@ -1,6 +1,7 @@
-name: Philosoraptor
-link: http://knowyourmeme.com/memes/philosoraptor
+name: philosoraptor
+link: # http://knowyourmeme.com/memes/<link-for-future-reference>
 default:
-- ''
+- # OPTIONAL DEFAULT
+- # LINES OF TEXT
 aliases:
-- raptor
+- philosoraptor

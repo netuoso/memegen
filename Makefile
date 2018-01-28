@@ -64,7 +64,7 @@ doctor:  ## Confirm system dependencies are available
 	echo "FLASK_CONFIG=dev" >> $@
 	echo "GOOGLE_ANALYTICS_TID=local" >> $@
 	echo "#REGENERATE_IMAGES=true" >> $@
-	echo "WATERMARK_OPTIONS=localhost" >> $@
+	echo "WATERMARK_OPTIONS=decentmemes.com" >> $@
 
 # PROJECT DEPENDENCIES #########################################################
 

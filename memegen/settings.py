@@ -43,7 +43,7 @@ class ProdConfig(Config):
 
     FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID')
     GOOGLE_ANALYTICS_TID = os.getenv('GOOGLE_ANALYTICS_TID')
-
+    WATERMARK_OPTIONS = ['decentmemes.com','decentmemes.net']
 
 class TestConfig(Config):
     """Test configuration."""
@@ -65,7 +65,7 @@ class DevConfig(Config):
     DEBUG = True
 
     LOG_LEVEL = logging.DEBUG
-    WATERMARK_OPTIONS = ['localhost'] + Config.WATERMARK_OPTIONS
+    WATERMARK_OPTIONS = ['decentmemes.com'] + Config.WATERMARK_OPTIONS
 
 
 def get_config(name):
