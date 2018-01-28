@@ -1,7 +1,7 @@
 name: anti-joke-chicken-rooster
 link: # http://knowyourmeme.com/memes/<link-for-future-reference>
 default:
-- # OPTIONAL DEFAULT
-- # LINES OF TEXT
+- # Optional default line
+- # Another line
 aliases:
-- anti-joke-chicken-rooster
+- #anti-joke-chicken-rooster

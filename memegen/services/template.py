@@ -21,6 +21,8 @@ class TemplateService(Service):
     def find(self, key, *, allow_missing=False):
         """Find a template with a matching key."""
 
+        print(key)
+
         # Find an exact match
         key2 = Template.strip(key, keep_special=True)
         template = self.template_store.read(key2)
