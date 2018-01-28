@@ -1,7 +1,7 @@
 # Project settings
 PROJECT := memegen
 PACKAGE := memegen
-REPOSITORY := jacebrowning/memegen
+REPOSITORY := netuoso/memegen
 
 # Project paths
 PACKAGES := $(PACKAGE) tests scripts
@@ -41,7 +41,7 @@ run: install ## Run the application
 
 .PHONY: launch
 launch: install
-	sleep 3 && open http://localhost:5000 &
+	sleep 3 && open http://0.0.0.0:5000 &
 	make run
 
 .PHONY: run-prod
@@ -51,7 +51,7 @@ run-prod: install .env
 
 .PHONY: launch-prod
 launch-prod: install
-	sleep 5 && open http://localhost:5000 &
+	sleep 5 && open http://0.0.0.0:5000 &
 	make run-prod
 
 # SYSTEM DEPENDENCIES ##########################################################
